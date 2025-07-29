@@ -1,12 +1,10 @@
 package br.com.fiap.javacleanarch.core.entities;
 
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 
-@Getter
 @EqualsAndHashCode
 public class Curso {
 
@@ -37,5 +35,17 @@ public class Curso {
 
         this.nome = nome;
         this.ativo = ativo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public ArrayList<Estudante> getEstudantes() {
+        return estudantes;
     }
 }

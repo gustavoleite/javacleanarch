@@ -1,10 +1,8 @@
 package br.com.fiap.javacleanarch.core.entities;
 
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import org.apache.commons.validator.routines.EmailValidator;
 
-@Getter
 @EqualsAndHashCode
 public class Estudante {
 
@@ -17,7 +15,7 @@ public class Estudante {
     private int idade;
 
     private static void idadeValida(int idade) {
-        if (idade >= 18) {
+        if (idade <= 18) {
             throw new IllegalArgumentException("Idade inválida. O estudante deve ter pelo menos 18 anos.");
         }
     }
@@ -29,7 +27,7 @@ public class Estudante {
         }
     }
 
-    public static Estudante create(String nome, String enderecoEmail, int idade) throws IllegalArgumentException {
+    public static Estudante create(String identificacaoInterna, String nome, int idade, String enderecoEmail) throws IllegalArgumentException {
         if (nome == null || enderecoEmail == null) {
             throw new IllegalArgumentException("Parâmetros inválidos para criar um estudante.");
         }
@@ -37,7 +35,7 @@ public class Estudante {
         enderecoEmailValido(enderecoEmail);
         idadeValida(idade);
 
-        return new Estudante(null, nome, enderecoEmail, idade);
+        return new Estudante(identificacaoInterna, nome, enderecoEmail, idade);
     }
 
     public Estudante(String identificacaoInterna, String nome, String enderecoEmail, int idade) {
@@ -66,5 +64,21 @@ public class Estudante {
     public void setIdade(int idade) {
         idadeValida(idade);
         this.idade = idade;
+    }
+
+    public String getIdentificacaoInterna() {
+        return identificacaoInterna;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEnderecoEmail() {
+        return enderecoEmail;
+    }
+
+    public int getIdade() {
+        return idade;
     }
 }

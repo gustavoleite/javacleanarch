@@ -2,12 +2,12 @@ package br.com.fiap.javacleanarch.core.usecases;
 
 import br.com.fiap.javacleanarch.core.dtos.NovoEstudanteDTO;
 import br.com.fiap.javacleanarch.core.entities.Estudante;
-import br.com.fiap.javacleanarch.core.exceptions.EstudanteJaExisteException;
+import br.com.fiap.javacleanarch.core.exceptions.EstudanteJaExistenteException;
 import br.com.fiap.javacleanarch.core.interfaces.IEstudanteGateway;
 
 public class CadastrarEstudanteUseCase {
 
-    IEstudanteGateway estudanteGateway;
+    private final IEstudanteGateway estudanteGateway;
 
     private CadastrarEstudanteUseCase(IEstudanteGateway estudanteGateway) {
         this.estudanteGateway = estudanteGateway;
@@ -21,13 +21,14 @@ public class CadastrarEstudanteUseCase {
         final Estudante estudanteExistente = this.estudanteGateway.buscarPorNome(novoEstudanteDTO.nome().trim());
 
         if (estudanteExistente != null) {
-            throw new EstudanteJaExisteException(novoEstudanteDTO.nome());
+            throw new EstudanteJaExistenteException(novoEstudanteDTO.nome());
         }
 
         final Estudante novoEstudante = Estudante.create(
+                null,
                 novoEstudanteDTO.nome(),
-                novoEstudanteDTO.enderecoEmail(),
-                novoEstudanteDTO.idade()
+                novoEstudanteDTO.idade(),
+                novoEstudanteDTO.enderecoEmail()
         );
 
         return this.estudanteGateway.incluir(novoEstudante);
