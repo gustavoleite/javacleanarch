@@ -1,13 +1,13 @@
-package br.com.fiap.javacleanarch.javacleanarch;
+package br.com.fiap.javacleanarch;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JavacleanarchApplication {
+public class JavaCleanArchApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JavacleanarchApplication.class, args);
+		SpringApplication.run(JavaCleanArchApplication.class, args);
 	}
 
 }

@@ -1,10 +1,10 @@
-package br.com.fiap.javacleanarch.javacleanarch;
+package br.com.fiap.javacleanarch;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JavacleanarchApplicationTests {
+class JavaCleanArchApplicationTests {
 
 	@Test
 	void contextLoads() {
