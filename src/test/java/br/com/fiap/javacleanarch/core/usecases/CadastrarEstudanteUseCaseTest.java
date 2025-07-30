@@ -1,4 +1,4 @@
-package br.com.fiap.javacleanarch;
+package br.com.fiap.javacleanarch.core.usecases;
 
 import br.com.fiap.javacleanarch.core.dtos.NovoEstudanteDTO;
 import br.com.fiap.javacleanarch.core.entities.Estudante;
